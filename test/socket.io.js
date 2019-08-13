@@ -10,7 +10,7 @@ if (testVersion === 'compat') {
 var fs = require('fs');
 var join = require('path').join;
 var exec = require('child_process').exec;
-var ioc = require('socket.io-client');
+var ioc = require('@k4connect/socket.io-client');
 var request = require('supertest');
 var expect = require('expect.js');
 
@@ -30,7 +30,7 @@ describe('socket.io', function(){
 
   it('should be the same version as client', function(){
     var version = require('../package').version;
-    expect(version).to.be(require('socket.io-client/package').version);
+    expect(version).to.be(require('@k4connect/socket.io-client/package').version);
   });
 
   describe('set', function() {
@@ -155,7 +155,7 @@ describe('socket.io', function(){
 
   describe('server attachment', function(){
     describe('http.Server', function(){
-      var clientVersion = require('socket.io-client/package').version;
+      var clientVersion = require('@k4connect/socket.io-client/package').version;
 
       it('should serve static files', function(done){
         var srv = http();
